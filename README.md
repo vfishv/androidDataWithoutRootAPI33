@@ -3,7 +3,7 @@
 
  Read this new method to access /Android/data on Android 14 with shizuku:
 
-http://folderv.com/2023/11/24/access-Android-data-and-Android-obb-on-Android-14/
+https://folderv.com/2023/11/24/access-Android-data-and-Android-obb-on-Android-14/
 
 
 
