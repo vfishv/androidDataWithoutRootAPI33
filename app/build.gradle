@@ -7,9 +7,10 @@ plugins {
 
 android {
     compileSdk 34
+    namespace "com.android.test"
 
     defaultConfig {
-        applicationId "com.android.api33dataobb"
+        applicationId "com.android.test"
         minSdk 21
         targetSdk 34
         versionCode 1

@@ -39,9 +39,6 @@ class MainActivity : AppCompatActivity(), FSAFActivityCallbacks {
     companion object {
         private const val TAG = "MainActivity"
 
-        const val DOCID_ANDROID_DATA = "primary:Android/data"
-        const val DOCID_ANDROID_OBB = "primary:Android/obb"
-
         const val REQ_SAF_R_DATA = 202030
         const val REQ_SAF_R_OBB  = 202036
 
@@ -67,7 +64,7 @@ class MainActivity : AppCompatActivity(), FSAFActivityCallbacks {
 
         tv = findViewById(R.id.tv)
         findViewById<View>(R.id.btnGo).setOnClickListener {
-            var docId = DOCID_ANDROID_DATA
+            var docId = DocumentVM.ANDROID_DATA
             if (DocumentVM.atLeastR()) {
                 //docId += "/" + act.packageName
                 val appSelectDialogFragment = AppSelectDialogFragment.newInstance(true)
@@ -90,7 +87,7 @@ class MainActivity : AppCompatActivity(), FSAFActivityCallbacks {
         }
 
         findViewById<View>(R.id.btnObb).setOnClickListener {
-            var docId = DOCID_ANDROID_OBB
+            var docId = DocumentVM.ANDROID_OBB
             if (DocumentVM.atLeastR()) {
                 //docId += "/" + act.packageName
                 val appSelectDialogFragment = AppSelectDialogFragment.newInstance(false)
@@ -155,12 +152,12 @@ class MainActivity : AppCompatActivity(), FSAFActivityCallbacks {
     }
 
     private fun goAndroidData(path: String?) {
-        val uri = DocumentVM.getFolderUri(DOCID_ANDROID_DATA, true)
+        val uri = DocumentVM.getFolderUri(DocumentVM.ANDROID_DATA, true)
         goSAF(uri, path)
     }
 
     private fun goAndroidObb(path: String?) {
-        val uri = DocumentVM.getFolderUri(DOCID_ANDROID_OBB, true)
+        val uri = DocumentVM.getFolderUri(DocumentVM.ANDROID_OBB, true)
         goSAF(uri, path)
     }
 
@@ -170,7 +167,7 @@ class MainActivity : AppCompatActivity(), FSAFActivityCallbacks {
         if (requestCode == REQ_SAF_R_DATA) {
             if (act != null) {
                 Log.d(TAG, "onActivityResult: $data")
-                if (!DocumentVM.checkFolderPermission(act,DOCID_ANDROID_DATA)) {
+                if (!DocumentVM.checkFolderPermission(act, DocumentVM.ANDROID_DATA)) {
                     if (resultCode == Activity.RESULT_OK) {
                         if (data != null) {
                             goSAF(data)
@@ -198,7 +195,7 @@ class MainActivity : AppCompatActivity(), FSAFActivityCallbacks {
         else if (requestCode == REQ_SAF_R_OBB) {
             if (act != null) {
                 Log.d(TAG, "onActivityResult: $data")
-                if (!DocumentVM.checkFolderPermission(act, DOCID_ANDROID_OBB)) {
+                if (!DocumentVM.checkFolderPermission(act, DocumentVM.ANDROID_OBB)) {
                     if (resultCode == Activity.RESULT_OK) {
                         if (data != null) {
                             goSAF(data)

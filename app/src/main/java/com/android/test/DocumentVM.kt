@@ -13,6 +13,11 @@ class DocumentVM {
 
         const val DOC_AUTHORITY = "com.android.externalstorage.documents"
 
+        // docID
+        const val DOCID_ROOT = "primary:"
+        const val ANDROID = "primary:Android"
+        const val ANDROID_DATA = "primary:Android/data"
+        const val ANDROID_OBB = "primary:Android/obb"
 
         @JvmStatic
         @RequiresApi(Build.VERSION_CODES.O)
